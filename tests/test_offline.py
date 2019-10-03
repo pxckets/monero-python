@@ -1,5 +1,5 @@
-from monero.backends.offline import OfflineWallet, WalletIsOffline
-from monero.wallet import Wallet
+from oscillate.backends.offline import OfflineWallet, WalletIsOffline
+from oscillate.wallet import Wallet
 import unittest
 from .base import JSONTestCase
 

@@ -1,14 +1,14 @@
 Interacting with daemon
 =======================
 
-The module offers an interface to interact with Monero daemon. For the time being, like with
+The module offers an interface to interact with Oscillate daemon. For the time being, like with
 wallet, the only available backend is JSON RPC.
 
 .. code-block:: python
 
-    In [1]: from monero.daemon import Daemon
+    In [1]: from oscillate.daemon import Daemon
 
-    In [2]: from monero.backends.jsonrpc import JSONRPCDaemon
+    In [2]: from oscillate.backends.jsonrpc import JSONRPCDaemon
 
     In [3]: daemon = Daemon(JSONRPCDaemon(port=28081))
 
@@ -29,9 +29,9 @@ The only difference is that now you want to add the ``relay=False`` argument.
 
 .. code-block:: python
 
-    In [5]: from monero.wallet import Wallet
+    In [5]: from oscillate.wallet import Wallet
 
-    In [6]: from monero.backends.jsonrpc import JSONRPCWallet
+    In [6]: from oscillate.backends.jsonrpc import JSONRPCWallet
 
     In [7]: wallet = Wallet(JSONRPCWallet(port=28088))
 
@@ -114,14 +114,14 @@ The following example shows such behavior:
     <ipython-input-22-f24dc5d51c78> in <module>()
     ----> 1 daemon.send_transaction(txs2[0])
 
-    ~/devel/monero-python/monero/daemon.py in send_transaction(self, tx, relay)
+    ~/devel/oscillate-python/oscillate/daemon.py in send_transaction(self, tx, relay)
          10 
          11     def send_transaction(self, tx, relay=True):
     ---> 12         return self._backend.send_transaction(tx.blob, relay=relay)
          13 
          14     def mempool(self):
 
-    ~/devel/monero-python/monero/backends/jsonrpc.py in send_transaction(self, blob, relay)
+    ~/devel/oscillate-python/oscillate/backends/jsonrpc.py in send_transaction(self, blob, relay)
          36         raise exceptions.TransactionBroadcastError(
          37                 "{status}: {reason}".format(**res),
     ---> 38                 details=res)
@@ -137,5 +137,5 @@ is discovered.
 API reference
 -------------
 
-.. automodule:: monero.daemon
+.. automodule:: oscillate.daemon
    :members:

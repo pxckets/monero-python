@@ -7,11 +7,11 @@ import os
 import random
 import re
 
-import monero
-from monero.address import address
-from monero.numbers import PaymentID, as_monero
-from monero.wallet import Wallet
-from monero.backends.jsonrpc import JSONRPCWallet
+import oscillate
+from oscillate.address import address
+from oscillate.numbers import PaymentID, as_oscillate
+from oscillate.wallet import Wallet
+from oscillate.backends.jsonrpc import JSONRPCWallet
 
 def url_data(url):
     gs = re.compile(
@@ -21,9 +21,9 @@ def url_data(url):
 
 def destpair(s):
     addr, amount = s.split(':')
-    return (address(addr), as_monero(amount))
+    return (address(addr), as_oscillate(amount))
 
-argsparser = argparse.ArgumentParser(description="Transfer Monero")
+argsparser = argparse.ArgumentParser(description="Transfer Oscillate")
 argsparser.add_argument('-v', dest='verbosity', action='count', default=0,
     help="Verbosity (repeat to increase; -v for INFO, -vv for DEBUG")
 argsparser.add_argument('wallet_rpc_url', nargs='?', type=url_data, default='127.0.0.1:18082',
@@ -42,7 +42,7 @@ argsparser.add_argument('--save', dest='outdir', nargs='?', default=None, const=
 argsparser.add_argument('destinations', metavar='address:amount', nargs='+', type=destpair,
     help="Destination address and amount (one or more pairs)")
 args = argsparser.parse_args()
-prio = getattr(monero.prio, args.prio.upper())
+prio = getattr(oscillate.prio, args.prio.upper())
 
 level = logging.WARNING
 if args.verbosity == 1:

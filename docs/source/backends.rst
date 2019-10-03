@@ -1,7 +1,7 @@
 Backends
 ========
 
-Backends are the protocols and methods used to communicate with the Monero daemon and interact with
+Backends are the protocols and methods used to communicate with the Oscillate daemon and interact with
 the wallet. As of the time of this writing, the only backends available in this library are:
 
  * ``jsonrpc`` for the HTTP based RPC server,
@@ -10,7 +10,7 @@ the wallet. As of the time of this writing, the only backends available in this 
 JSON RPC
 ----------------
 
-This backend requires a running ``monero-wallet-rpc`` process with a Monero wallet file opened.
+This backend requires a running ``oscillate-wallet-rpc`` process with a Oscillate wallet file opened.
 This can be on your local system or a remote node, depending on where the wallet file lives and
 where the daemon is running. Refer to the quickstart for general setup information.
 
@@ -22,7 +22,7 @@ the official `Wallet RPC`_ documentation.
 
 .. _`Wallet RPC`: https://getmonero.org/resources/developer-guides/wallet-rpc.html
 
-.. automodule:: monero.backends.jsonrpc
+.. automodule:: oscillate.backends.jsonrpc
    :members:
 
 Offline
@@ -39,5 +39,5 @@ wallet itself. In version 0.5 the only practical use is to cold-generate
    In [9]: w.get_address(100,37847)
    Out[9]: 883Gcsq65iqh4UL3fJTWLxY45skXyFVNQJZ4bdw4TJcqd8vafvtpX4p6HNmawqFMQ6TwJP7adzyLT1fbU6z1n9dqB9bJrfn
 
-.. automodule:: monero.backends.offline
+.. automodule:: oscillate.backends.offline
    :members:

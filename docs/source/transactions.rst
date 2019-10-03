@@ -1,11 +1,11 @@
 Sending and receiving payments
 ==============================
 
-Payments in Monero desire a bit of explanation even for people experienced with cryptocurrency.
+Payments in Oscillate desire a bit of explanation even for people experienced with cryptocurrency.
 
-The main difference from coins which use transparent blockchain is that Monero transactions do not
+The main difference from coins which use transparent blockchain is that Oscillate transactions do not
 disclose sender or recipient's address, nor they tell what the amount is. This is a great feature
-that makes Monero stand out, however at the same time it causes difficulties. In the outgoing
+that makes Oscillate stand out, however at the same time it causes difficulties. In the outgoing
 payments you won't see the recipient address and, in the incoming ones you won't see the sender.
 
 For this reason, there are two classes representing those, ``IncomingPayment`` and
@@ -152,7 +152,7 @@ them the transactions they do not have.
 
     **With significant amounts you should also wait for a few confirmations to appear.** The top
     of the blockchain sometimes gets replaced by a competing block. It is a popular practice to
-    wait for at least 6 confirmations to appear, which is also the standard in Monero before funds
+    wait for at least 6 confirmations to appear, which is also the standard in Oscillate before funds
     get unlocked and can be used in subsequent transactions.
 
 However, it is possible to query the wallet for transactions in the mempool. You may use them as
@@ -186,7 +186,7 @@ You may as well query for both confirmed and unconfirmed transactions using
 Sending payments
 ----------------
 
-There are two methods for sending Monero. For a single payment use the ``transfer`` method of
+There are two methods for sending Oscillate. For a single payment use the ``transfer`` method of
 ``Wallet`` or ``Account`` object.
 
 It returns a list of resulting transactions. In most cases it will contain only one element, but
@@ -246,5 +246,5 @@ ring size or unlock time. See API reference below for details.
 API reference
 -------------
 
-.. automodule:: monero.transaction
+.. automodule:: oscillate.transaction
    :members:

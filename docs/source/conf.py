@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# Monero Python module documentation build configuration file, created by
+# Oscillate Python module documentation build configuration file, created by
 # sphinx-quickstart on Tue Jan 16 21:37:52 2018.
 #
 # This file is execfile()d with the current directory set to its
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Monero Python module'
+project = 'Oscillate Python module'
 copyright = '2018, Michal Salaban'
 author = 'Michal Salaban'
 
@@ -116,7 +116,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'MoneroPythonmoduledoc'
+htmlhelp_basename = 'OscillatePythonmoduledoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -143,7 +143,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'MoneroPythonmodule.tex', 'Monero Python module Documentation',
+    (master_doc, 'OscillatePythonmodule.tex', 'Oscillate Python module Documentation',
      'Michal Salaban', 'manual'),
 ]
 
@@ -153,7 +153,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'moneropythonmodule', 'Monero Python module Documentation',
+    (master_doc, 'oscillatepythonmodule', 'Oscillate Python module Documentation',
      [author], 1)
 ]
 
@@ -164,7 +164,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'MoneroPythonmodule', 'Monero Python module Documentation',
-     author, 'MoneroPythonmodule', 'One line description of project.',
+    (master_doc, 'OscillatePythonmodule', 'Oscillate Python module Documentation',
+     author, 'OscillatePythonmodule', 'One line description of project.',
      'Miscellaneous'),
 ]

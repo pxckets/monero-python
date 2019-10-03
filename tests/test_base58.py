@@ -1,6 +1,6 @@
 import unittest
 
-from monero.base58 import decode, encode
+from oscillate.base58 import decode, encode
 
 
 class Base58EncodeTestCase(unittest.TestCase):

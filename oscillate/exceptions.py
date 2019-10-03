@@ -1,13 +1,13 @@
-class MoneroException(Exception):
+class OscillateException(Exception):
     pass
 
-class BackendException(MoneroException):
+class BackendException(OscillateException):
     pass
 
 class NoDaemonConnection(BackendException):
     pass
 
-class AccountException(MoneroException):
+class AccountException(OscillateException):
     pass
 
 class WrongAddress(AccountException):
@@ -36,8 +36,8 @@ class TransactionBroadcastError(BackendException):
 class TransactionNotFound(AccountException):
     pass
 
-class SignatureCheckFailed(MoneroException):
+class SignatureCheckFailed(OscillateException):
     pass
 
-class WalletIsNotDeterministic(MoneroException):
+class WalletIsNotDeterministic(OscillateException):
     pass

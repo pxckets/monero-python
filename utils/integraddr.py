@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sys
-from monero.address import address
-from monero.numbers import PaymentID
+from oscillate.address import address
+from oscillate.numbers import PaymentID
 
 USAGE = "{0} <address> <payment_id>"
 

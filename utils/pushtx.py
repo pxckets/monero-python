@@ -5,10 +5,10 @@ import operator
 import re
 import sys
 
-from monero.backends.jsonrpc import JSONRPCDaemon
-from monero.daemon import Daemon
-from monero.transaction import Transaction
-from monero import exceptions
+from oscillate.backends.jsonrpc import JSONRPCDaemon
+from oscillate.daemon import Daemon
+from oscillate.transaction import Transaction
+from oscillate import exceptions
 
 def url_data(url):
     gs = re.compile(

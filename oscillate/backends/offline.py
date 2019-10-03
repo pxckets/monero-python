@@ -11,7 +11,7 @@ class WalletIsOffline(exceptions.BackendException):
 
 class OfflineWallet(object):
     """
-    Offline backend for Monero wallet. Provides support for address generation.
+    Offline backend for Oscillate wallet. Provides support for address generation.
     """
     _address = None
     _svk = None

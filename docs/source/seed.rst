@@ -3,13 +3,13 @@ Mnemonic seeds
 
 You can utilize the ``Seed`` class in order to generate or supply a 25 word mnemonic seed. From this mnemonic seed you can derive public and private spend keys, public and private view keys, and public wallet address. Read more about mnemonic seeds `here`_.
 
-The class also reads 12 or 13 word seeds, also known as *MyMonero style*.
+The class also reads 12 or 13 word seeds, also known as *MyOscillate style*.
 
 .. _here: https://getmonero.org/resources/moneropedia/mnemonicseed.html
 
 .. warning:: This class deals with highly sensitive strings in both inputs and outputs.
             The mnemonic seed and it's hexadecimal representation are essentially full
-            access keys to your Monero funds and should be handled with the utmost care.
+            access keys to your Oscillate funds and should be handled with the utmost care.
 
 
 Generating a new seed
@@ -20,7 +20,7 @@ By default, constructing the ``Seed`` class without any parameters will generate
 
 .. code-block:: python
 
-    In  [1]: from monero.seed import Seed
+    In  [1]: from oscillate.seed import Seed
 
     In  [2]: s = Seed()
 
@@ -38,7 +38,7 @@ If you have an existing mnemonic word or hexadecimal seed that you would like to
 
 .. code-block:: python
 
-    In  [1]: from monero.seed import Seed
+    In  [1]: from oscillate.seed import Seed
 
     In  [2]: s = Seed("73192a945d7400a3a76a941be451a9623f37dd834006d02140a6a762b9142d80")
 
@@ -67,7 +67,7 @@ Once the ``Seed`` class is constructed, you can derive `all of the keys`_ associ
 
 .. code-block:: python
 
-    In  [1]: from monero.seed import Seed
+    In  [1]: from oscillate.seed import Seed
 
     In  [2]: s = Seed("fewest lipstick auburn cocoa macro circle hurried impel macro hatchet jeopardy swung aloof spiders gags jaws abducts buying alpine athlete junk patio academy loudly academy")
 
@@ -92,5 +92,5 @@ Once the ``Seed`` class is constructed, you can derive `all of the keys`_ associ
 API reference
 -------------
 
-.. automodule:: monero.seed
+.. automodule:: oscillate.seed
    :members:

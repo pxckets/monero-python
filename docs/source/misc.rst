@@ -4,5 +4,5 @@ Miscellaneous functions, types and constants
 API reference
 -------------
 
-.. automodule:: monero.numbers
+.. automodule:: oscillate.numbers
    :members:

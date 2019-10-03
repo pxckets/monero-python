@@ -2,7 +2,7 @@ from decimal import Decimal
 import sys
 import unittest
 
-from monero.numbers import to_atomic, from_atomic, as_monero, PaymentID
+from oscillate.numbers import to_atomic, from_atomic, as_oscillate, PaymentID
 
 class NumbersTestCase(unittest.TestCase):
     def test_simple_numbers(self):
@@ -23,7 +23,7 @@ class NumbersTestCase(unittest.TestCase):
 
     def test_rounding(self):
         self.assertEqual(to_atomic(Decimal('1.0000000000004')), 1000000000000)
-        self.assertEqual(as_monero(Decimal('1.0000000000014')), Decimal('1.000000000001'))
+        self.assertEqual(as_oscillate(Decimal('1.0000000000014')), Decimal('1.000000000001'))
 
     def test_payment_id(self):
         pid = PaymentID('0')

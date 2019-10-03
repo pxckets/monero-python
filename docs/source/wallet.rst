@@ -12,9 +12,9 @@ addresses:
 
 .. code-block:: python
 
-    In [1]: from monero.wallet import Wallet
+    In [1]: from oscillate.wallet import Wallet
 
-    In [2]: from monero.backends.jsonrpc import JSONRPCWallet
+    In [2]: from oscillate.backends.jsonrpc import JSONRPCWallet
 
     In [3]: w = Wallet(JSONRPCWallet(port=28088))
 
@@ -36,7 +36,7 @@ client.
     Out[5]: 1
 
     In [6]: w.accounts[0]
-    Out[6]: <monero.account.Account at 0x7f78992d6898>
+    Out[6]: <oscillate.account.Account at 0x7f78992d6898>
 
     In [7]: w.accounts[0].get_address()
     Out[7]: A2GmyHHJ9jtUhPiwoAbR2tXU9LJu2U6fJjcsv3rxgkVRWU6tEYcn6C1NBc7wqCv5V7NW3zeYuzKf6RGGgZTFTpVC4QxAiAX
@@ -63,7 +63,7 @@ create new instances.
      BenuGf8eyVhjZwdcxEJY1MHrUfqHjPvE3d7Pi4XY5vQz53VnVpB38bCBsf8AS5rJuZhuYrqdG9URc2eFoCNPwLXtLENT4R7]
 
     In [11]: w.new_account()
-    Out[11]: <monero.account.Account at 0x7f7894dffbe0>
+    Out[11]: <oscillate.account.Account at 0x7f7894dffbe0>
 
     In [12]: len(w.accounts)
     Out[12]: 2
@@ -88,8 +88,8 @@ In the next chapter we will :doc:`learn about addresses <address>`.
 API reference
 -------------
 
-.. automodule:: monero.wallet
+.. automodule:: oscillate.wallet
    :members:
 
-.. automodule:: monero.account
+.. automodule:: oscillate.account
    :members:

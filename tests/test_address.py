@@ -2,7 +2,7 @@ import json
 import os
 import unittest
 
-from monero.address import Address, SubAddress, IntegratedAddress, address
+from oscillate.address import Address, SubAddress, IntegratedAddress, address
 from tests.utils import classproperty
 
 

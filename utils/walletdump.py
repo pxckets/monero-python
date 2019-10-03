@@ -4,9 +4,9 @@ import logging
 import operator
 import re
 
-from monero import exceptions
-from monero.backends.jsonrpc import JSONRPCWallet, RPCError
-from monero.wallet import Wallet
+from oscillate import exceptions
+from oscillate.backends.jsonrpc import JSONRPCWallet, RPCError
+from oscillate.wallet import Wallet
 
 def url_data(url):
     gs = re.compile(
@@ -64,7 +64,7 @@ print(
         unlocked=w.balance(unlocked=True)))
 try:
     seed = w.seed()
-except (exceptions.WalletIsNotDeterministic, RPCError): # FIXME: Remove RPCError once PR#4563 is merged in monero
+except (exceptions.WalletIsNotDeterministic, RPCError): # FIXME: Remove RPCError once PR#4563 is merged in oscillate
     seed = '[--- wallet is not deterministic and has no seed ---]'
 print(
     "Keys:\n" \

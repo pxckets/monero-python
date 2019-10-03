@@ -6,11 +6,11 @@ try:
 except ImportError:
     from mock import patch, Mock
 
-from monero.wallet import Wallet
-from monero.address import BaseAddress, Address
-from monero.seed import Seed
-from monero.transaction import IncomingPayment, OutgoingPayment, Transaction
-from monero.backends.jsonrpc import JSONRPCWallet
+from oscillate.wallet import Wallet
+from oscillate.address import BaseAddress, Address
+from oscillate.seed import Seed
+from oscillate.transaction import IncomingPayment, OutgoingPayment, Transaction
+from oscillate.backends.jsonrpc import JSONRPCWallet
 
 from .base import JSONTestCase
 
@@ -36,7 +36,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
                 'total_balance': 236153709446071,
                 'total_unlocked_balance': 236153709446071}}
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_seed(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -52,7 +52,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
         self.assertIsInstance(seed, Seed)
         self.assertEqual(seed.phrase, phrase)
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_balance(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -90,7 +90,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
         self.assertIsInstance(balances[1], Decimal)
         self.assertEqual(locked, Decimal('224.916129245183'))
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_address(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -165,7 +165,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
         self.assertEqual('account 1', w.accounts[1].label)
         self.assertEqual([acc0, acc1], w.accounts)
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_incoming_confirmed(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -292,7 +292,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
             self.assertIsInstance(pmt.transaction.fee, Decimal)
             self.assertIsInstance(pmt.transaction.height, int)
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_incoming_confirmed_and_unconfirmed(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -443,7 +443,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
             self.assertIsInstance(pmt.transaction.fee, Decimal)
             self.assertIsInstance(pmt.transaction.height, (int, type(None)))
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_incoming_unconfirmed(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -486,7 +486,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
             self.assertIsInstance(pmt.transaction.fee, Decimal)
             self.assertIs(pmt.transaction.height, None)
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_incoming_by_payment_ids(self, mock_post):
         # These queries will use get_bulk_payments RPC method instead of get_transfers
         mock_post.return_value.status_code = 200
@@ -573,7 +573,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
             self.assertIsInstance(pmt.transaction.height, int)
             self.assertIn(pmt.payment_id, ids)
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_outgoing(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -741,7 +741,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
             self.assertIsInstance(pmt.transaction.fee, Decimal)
             self.assertIsInstance(pmt.transaction.height, int)
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_outgoing_confirmed_and_unconfirmed(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -921,7 +921,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
             self.assertIsInstance(pmt.transaction.fee, Decimal)
             self.assertIsInstance(pmt.transaction.height, (int, type(None)))
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_outgoing_unconfirmed_only(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -969,7 +969,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
         self.assertEqual(len(pmt.destinations), 2)
         self.assertEqual(pmt.destinations[0][1] + pmt.destinations[1][1], pmt.amount)
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_send_transfer(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -1015,7 +1015,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
         self.assertIsInstance(result[0], Transaction)
         self.assertEqual(Decimal('111.086545699972'), result[1])
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_dynamic_ring_size_deprecation(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -1030,7 +1030,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
                         'tx_hash_list': ['401d8021975a0fee16fe84acbfc4d8ba6312e563fa245baba2aac382e787fb60'],
                         'tx_key_list': ['7061d4d939b563a11e344c60938410e2e63ea72c43741fae81b8805cebe5570a']}}
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_export_import_outputs(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result
@@ -1043,7 +1043,7 @@ class JSONRPCWalletTestCase(JSONTestCase):
         mock_post.return_value.json.return_value = {u'id': 0, u'jsonrpc': u'2.0', u'result': {u'num_imported': 9}}
         self.assertEqual(self.wallet.import_outputs(outs_hex), 9)
 
-    @patch('monero.backends.jsonrpc.requests.post')
+    @patch('oscillate.backends.jsonrpc.requests.post')
     def test_export_import_key_images(self, mock_post):
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = self.accounts_result

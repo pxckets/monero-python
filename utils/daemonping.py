@@ -4,8 +4,8 @@ import logging
 import operator
 import re
 
-from monero.backends.jsonrpc import JSONRPCDaemon
-from monero.daemon import Daemon
+from oscillate.backends.jsonrpc import JSONRPCDaemon
+from oscillate.daemon import Daemon
 
 def url_data(url):
     gs = re.compile(

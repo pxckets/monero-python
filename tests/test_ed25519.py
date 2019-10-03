@@ -1,5 +1,5 @@
 import unittest
-from monero import ed25519
+from oscillate import ed25519
 
 class Ed25519TestCase(unittest.TestCase):
     def test_comp_decomp(self):

@@ -2,16 +2,16 @@ Quick start
 ===========
 
 This quick start tutorial will guide you through the first steps of connecting
-to the Monero wallet. We assume you:
+to the Oscillate wallet. We assume you:
 
- * have basic knowledge of Monero concepts of the wallet and daemon,
+ * have basic knowledge of Oscillate concepts of the wallet and daemon,
  * know how to use CLI (*command line interface*),
  * have experience with Python.
 
 Connect to testnet for your own safety
 --------------------------------------
 
-The testnet is another Monero network where worthless coins circulate and
+The testnet is another Oscillate network where worthless coins circulate and
 where, as the name suggests, all tests are supposed to be run. It's also a
 place for early deployment of future features of the currency itself. You may
 read `a brief explanation at stackexchange`_.
@@ -31,7 +31,7 @@ In order to connect to the testnet network you need to start the daemon:
 
 .. code-block:: shell
 
-    $ monerod --testnet
+    $ oscillated --testnet
 
 
 If you haven't used testnet before, it will begin downloading the blockchain,
@@ -42,7 +42,7 @@ You may however create a wallet in the meantime:
 
 .. code-block:: shell
 
-    $ monero-wallet-cli --testnet --generate-new-wallet testwallet
+    $ oscillate-wallet-cli --testnet --generate-new-wallet testwallet
 
 For now you may leave the password empty (testnet coins are worthless).
 
@@ -54,7 +54,7 @@ a JSON RPC interface. Start it by typing:
 
 .. code-block:: shell
 
-    $ monero-wallet-rpc --testnet --wallet-file testwallet --password "" --rpc-bind-port 28088 --disable-rpc-login
+    $ oscillate-wallet-rpc --testnet --wallet-file testwallet --password "" --rpc-bind-port 28088 --disable-rpc-login
 
 Now you're almost ready to start using Python.
 
@@ -79,9 +79,9 @@ Connect to the wallet
 
 .. code-block:: python
 
-    In [1]: from monero.wallet import Wallet
+    In [1]: from oscillate.wallet import Wallet
 
-    In [2]: from monero.backends.jsonrpc import JSONRPCWallet
+    In [2]: from oscillate.backends.jsonrpc import JSONRPCWallet
 
     In [3]: w = Wallet(JSONRPCWallet(port=28088))
 

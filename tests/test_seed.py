@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from monero.address import Address
-from monero.seed import Seed
-from monero.wordlists import list_wordlists
+from oscillate.address import Address
+from oscillate.seed import Seed
+from oscillate.wordlists import list_wordlists
 
 class SeedTestCase(unittest.TestCase):
 
@@ -60,7 +60,7 @@ class SeedTestCase(unittest.TestCase):
         seed = Seed("adjust mugged vaults atlas nasty mews damp toenail suddenly toxic possible "\
             "framed succeed fuzzy return demonstrate nucleus album noises peculiar virtual "\
             "rowboat inorganic jester fuzzy")
-        self.assertFalse(seed.is_mymonero())
+        self.assertFalse(seed.is_myoscillate())
         self.assertEqual(
             seed.secret_spend_key(),
             '482700617ba810f94035d7f4d7ccc1a29878e165b4867872b705204c85406906')
@@ -83,7 +83,7 @@ class SeedTestCase(unittest.TestCase):
         self.assertIsInstance(seed.public_address(net='stagenet'), Address)
 
         seed = Seed("dwelt idols lopped blender haggled rabbits piloted value swagger taunts toolbox upgrade swagger")
-        self.assertTrue(seed.is_mymonero())
+        self.assertTrue(seed.is_myoscillate())
         # check if the same seed without checksum matches the hex
         self.assertEqual(seed.hex, Seed(" ".join(seed.phrase.split(" ")[:12])).hex)
         # the following fails, #21 addresses that
@@ -224,7 +224,7 @@ class SeedTestCase(unittest.TestCase):
 
     def test_japanese(self):
         seed = Seed(u"いもり すあな いきる しちょう うったえる ちひょう けなみ たいちょう うぶごえ しかい しなぎれ いっせい つかれる しなん ばあさん たいまつばな しひょう おいかける あんがい ていへん せんもん きこく せんく そそぐ つかれる", "Japanese")
-        self.assertFalse(seed.is_mymonero())
+        self.assertFalse(seed.is_myoscillate())
         self.assertEqual(
             seed.secret_spend_key(),
             'a047598095d2ada065af73758f7082900b9b0d721b5f99a541a78bd461ffc607')
@@ -243,7 +243,7 @@ class SeedTestCase(unittest.TestCase):
 
     def test_portuguese(self):
         seed = Seed(u"rebuscar mefistofelico luto isca vulva ontologico autuar epiteto jarro invulneravel inquisitorial vietnamita voile potro mamute giroscopio scherzo cheroqui gueto loquaz fissurar fazer violoncelo viquingue vulva", "Portuguese")
-        self.assertFalse(seed.is_mymonero())
+        self.assertFalse(seed.is_myoscillate())
         self.assertEqual(
             seed.secret_spend_key(),
             '60916cfcb10fa0b2b0648e36ecd7037f5c1972d36b2e6d56c2f4feca613a4200')
@@ -280,7 +280,7 @@ class SeedTestCase(unittest.TestCase):
 
     def test_spanish(self):
         seed = Seed(u"riesgo lápiz martes fuerza dinero pupila pago mensaje guion libro órgano juntar imperio puñal historia pasión nación posible paso límite don afirmar receta reposo fuerza", "Spanish")
-        self.assertFalse(seed.is_mymonero())
+        self.assertFalse(seed.is_myoscillate())
         self.assertEqual(
             seed.secret_spend_key(),
             '5973d91299466a9a51ddfcd20d1710c776aa1399279b292b264ab6b7ab608105')

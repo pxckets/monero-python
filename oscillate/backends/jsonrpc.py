@@ -16,7 +16,7 @@ _log = logging.getLogger(__name__)
 
 class JSONRPCDaemon(object):
     """
-    JSON RPC backend for Monero daemon
+    JSON RPC backend for Oscillate daemon
 
     :param protocol: `http` or `https`
     :param host: host name or IP
@@ -108,7 +108,7 @@ class JSONRPCDaemon(object):
 
 class JSONRPCWallet(object):
     """
-    JSON RPC backend for Monero wallet (``monero-wallet-rpc``)
+    JSON RPC backend for Oscillate wallet (``oscillate-wallet-rpc``)
 
     :param protocol: `http` or `https`
     :param host: host name or IP

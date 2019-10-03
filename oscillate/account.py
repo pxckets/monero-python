@@ -3,11 +3,11 @@ from .transaction import PaymentManager
 
 
 class Account(object):
-    """Monero account.
+    """Oscillate account.
 
     Provides interface to operate on a wallet's account.
 
-    Accounts belong to a :class:`Wallet <monero.wallet.Wallet>` and act like
+    Accounts belong to a :class:`Wallet <oscillate.wallet.Wallet>` and act like
     separate sub-wallets. No funds can be moved between accounts off-chain
     (without a transaction).
 
@@ -47,7 +47,7 @@ class Account(object):
         """
         Return account's main address.
 
-        :rtype: :class:`SubAddress <monero.address.SubAddress>`
+        :rtype: :class:`SubAddress <oscillate.address.SubAddress>`
         """
         return self._backend.addresses(account=self.index)[0]
 
@@ -64,7 +64,7 @@ class Account(object):
         Creates a new address.
 
         :param label: address label as `str`
-        :rtype: :class:`SubAddress <monero.address.SubAddress>`
+        :rtype: :class:`SubAddress <oscillate.address.SubAddress>`
         """
         return self._backend.new_address(account=self.index, label=label)
 
@@ -74,19 +74,19 @@ class Account(object):
         """
         Sends a transfer. Returns a list of resulting transactions.
 
-        :param address: destination :class:`Address <monero.address.Address>` or subtype
+        :param address: destination :class:`Address <oscillate.address.Address>` or subtype
         :param amount: amount to send
         :param priority: transaction priority, implies fee. The priority can be a number
                     from 1 to 4 (unimportant, normal, elevated, priority) or a constant
-                    from `monero.prio`.
+                    from `oscillate.prio`.
         :param payment_id: ID for the payment (must be None if
-                        :class:`IntegratedAddress <monero.address.IntegratedAddress>`
+                        :class:`IntegratedAddress <oscillate.address.IntegratedAddress>`
                         is used as the destination)
         :param unlock_time: the extra unlock delay
         :param relay: if `True`, the wallet will relay the transaction(s) to the network
                         immediately; when `False`, it will only return the transaction(s)
                         so they might be broadcasted later
-        :rtype: list of :class:`Transaction <monero.transaction.Transaction>`
+        :rtype: list of :class:`Transaction <oscillate.transaction.Transaction>`
         """
         return self._backend.transfer(
             [(address, amount)],
@@ -103,19 +103,19 @@ class Account(object):
         Sends a batch of transfers. Returns a list of resulting transactions.
 
         :param destinations: a list of destination and amount pairs:
-                    [(:class:`Address <monero.address.Address>`, `Decimal`), ...]
+                    [(:class:`Address <oscillate.address.Address>`, `Decimal`), ...]
         :param priority: transaction priority, implies fee. The priority can be a number
                     from 1 to 4 (unimportant, normal, elevated, priority) or a constant
-                    from `monero.prio`.
+                    from `oscillate.prio`.
         :param payment_id: ID for the payment (must be None if
-                    :class:`IntegratedAddress <monero.address.IntegratedAddress>`
+                    :class:`IntegratedAddress <oscillate.address.IntegratedAddress>`
                     is used as the destination)
         :param unlock_time: the extra unlock delay
         :param relay: if `True`, the wallet will relay the transaction(s) to the network
                     immediately; when `False`, it will only return the transaction(s)
                     so they might be broadcast later
         :rtype: list of transaction and amount pairs:
-                [(:class:`Transaction <monero.transaction.Transaction>`, `Decimal`), ...]
+                [(:class:`Transaction <oscillate.transaction.Transaction>`, `Decimal`), ...]
         """
         return self._backend.transfer(
             destinations,
@@ -130,12 +130,12 @@ class Account(object):
         """
         Sends all unlocked balance to an address. Returns a list of resulting transactions.
 
-        :param address: destination :class:`Address <monero.address.Address>` or subtype
+        :param address: destination :class:`Address <oscillate.address.Address>` or subtype
         :param priority: transaction priority, implies fee. The priority can be a number
                     from 1 to 4 (unimportant, normal, elevated, priority) or a constant
-                    from `monero.prio`.
+                    from `oscillate.prio`.
         :param payment_id: ID for the payment (must be None if
-                    :class:`IntegratedAddress <monero.address.IntegratedAddress>`
+                    :class:`IntegratedAddress <oscillate.address.IntegratedAddress>`
                     is used as the destination)
         :param subaddr_indices: a sequence of subaddress indices to sweep from. Empty sequence
                     or `None` means sweep all positive balances.
@@ -143,7 +143,7 @@ class Account(object):
         :param relay: if `True`, the wallet will relay the transaction(s) to the network
                     immediately; when `False`, it will only return the transaction(s)
                     so they might be broadcast later
-        :rtype: list of :class:`Transaction <monero.transaction.Transaction>`
+        :rtype: list of :class:`Transaction <oscillate.transaction.Transaction>`
         """
         return self._backend.sweep_all(
             address,
